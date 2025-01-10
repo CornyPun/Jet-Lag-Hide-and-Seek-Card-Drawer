@@ -1,0 +1,135 @@
+* {
+    margin: 0px;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: lightgray;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: auto;
+}
+
+.card, .card-copy {
+    background-color: transparent;
+    width: 75vw;
+    height: 105vw;
+}
+
+.card {
+    perspective: 1000px;
+
+    border-color: darkgray;
+    border-style: dashed;
+    border-width: 2vw;
+    border-radius: 5vw;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card-hidden {
+    transform: translateY(-100vh);
+    transition: transform 0s;
+}
+
+.card-disappear {
+    transform: translateX(300%) rotateX(180deg) rotate(-50deg);
+}
+
+.card-unflipped {
+    transform: rotateX(0deg);
+}
+
+.card-flipped {
+    transform: rotateX(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    color: black;
+}
+
+.card-front-image, .card-back-image, .card-copy-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5vw;
+}
+
+.card-back {
+    color: white;
+    transform: rotateX(180deg);
+}
+
+.hand-button {
+    position: absolute;
+    bottom: 12.5vw;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    z-index: 10;
+
+    width: 20%;
+    padding-bottom: 20%;
+
+    background-color: black;
+}
+
+.toggle-container {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    padding: 12.5vw 12.5vw 12.5vw 12.5vw;
+    box-sizing: border-box;
+
+    background-color: darkgray;
+
+    transition: transform 0.8s;
+}
+
+.toggle-container-visible {
+    transform: translateY(-100%);
+}
+
+.hand-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vw;
+
+    overflow: scrollable;
+    overflow-y: auto;
+
+    width: 100%;
+    height: 100%;
+}
