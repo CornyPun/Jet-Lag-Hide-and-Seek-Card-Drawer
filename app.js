@@ -67,34 +67,57 @@ function drawCard() {
     const drawnCardFilePath = "card-images/" + drawnCardName + ".png";
     cardBackImage.src = drawnCardFilePath;
 
-    return drawnCardName, drawnCardFilePath;
+    return [drawnCardName, drawnCardFilePath];
 }
 
 function addCard(drawnCardName, drawnCardFilePath) {
     cardDeck.splice(cardDeck.indexOf(drawnCardName), 1);
-    
+
     const cardCopyDiv = document.createElement("div");
     cardCopyDiv.classList.add("card-copy");
+    cardCopyDiv.id = drawnCardName;
     
     const cardCopyImage = document.createElement("img");
     cardCopyImage.classList.add("card-copy-image");
     cardCopyImage.src = drawnCardFilePath;
 
+    const cardCopyDiscardDiv = document.createElement("div");
+    cardCopyDiscardDiv.classList.add('card-copy-discard');
+    cardCopyDiscardDiv.classList.add('card-copy-discard-hidden');
+
+    const cardCopyDiscardHeader = document.createElement("h1");
+    cardCopyDiscardHeader.innerHTML = "DISCARD";
+    cardCopyDiscardHeader.classList.add("card-copy-discard-header");
+    cardCopyDiscardDiv.appendChild(cardCopyDiscardHeader);
+
     cardCopyDiv.appendChild(cardCopyImage);
+    cardCopyDiv.appendChild(cardCopyDiscardDiv);
     handContainerDiv.appendChild(cardCopyDiv);
+
+    cardCopyDiv.addEventListener("click", e => {
+        cardCopyDiscardDiv.classList.toggle("card-copy-discard-hidden");
+        cardCopyDiv.classList.toggle("card-copy-extended");
+    })
+
+    cardCopyDiscardDiv.addEventListener("click", e => {
+        cardCopyDiv.remove();
+        cardDeck.push(cardCopyDiv.id);
+        console.log(cardDeck);
+    })
 }
 
 function toggleState() {
     animPlaying = true;
 
     if (cardState === HIDDEN_STATE) {
+        //console.log(drawCard())
+        [drawnCardName, drawnCardFilePath] = drawCard();
+
         cardInnerDiv.classList.toggle("card-hidden");
         cardInnerDiv.classList.toggle("card-unflipped");
 
         cardState = UNFLIPPED_STATE;
     } else if (cardState === UNFLIPPED_STATE) {
-        drawnCardName, drawnCardFilePath = drawCard();
-
         cardInnerDiv.classList.toggle("card-unflipped");
         cardInnerDiv.classList.toggle("card-flipped");
 

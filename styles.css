@@ -28,8 +28,12 @@ html, body {
 
 .card, .card-copy {
     background-color: transparent;
+
+    margin: 0px;
     width: 75vw;
     height: 105vw;
+
+    border-radius: 5vw;
 }
 
 .card {
@@ -38,7 +42,6 @@ html, body {
     border-color: darkgray;
     border-style: dashed;
     border-width: 2vw;
-    border-radius: 5vw;
 }
 
 .card-inner {
@@ -132,4 +135,39 @@ html, body {
 
     width: 100%;
     height: 100%;
+}
+
+.card-copy-extended {
+    height: auto;
+}
+
+.card-copy-discard {
+    width: 100%;
+    height: 15vw;
+
+    margin-top: 2.5vw;
+    padding: 2.5vw;
+    
+    box-sizing: border-box;
+    visibility: visible;
+    opacity: 1;
+    background-color: #c72525;
+    border-radius: 5vw;
+
+    transition: opacity 0.5s;
+}
+
+.card-copy-discard-header {
+    width: 100%;
+    height: 100%;
+
+    font-family: "Montserrat", serif;
+    font-weight: 800;
+    text-align: center;
+    color: white;
+}
+
+.card-copy-discard-hidden {
+    visibility: hidden;
+    opacity: 0;
 }
