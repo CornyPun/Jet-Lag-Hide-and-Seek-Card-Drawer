@@ -15,7 +15,7 @@ html, body {
     width: 100%;
     height: 100%;
 
-    background-color: lightgray;
+    background-color: #d3d3d3;
 }
 
 .card-container {
@@ -33,7 +33,7 @@ html, body {
     width: 75vw;
     height: 105vw;
 
-    border-radius: 5vw;
+    border-radius: 7vw;
 }
 
 .card {
@@ -101,10 +101,17 @@ html, body {
     margin-inline: auto;
     z-index: 10;
 
-    width: 20%;
-    padding-bottom: 20%;
+    width: 30%;
+    padding-bottom: 30%;
+}
 
-    background-color: black;
+.hand-image {
+    position: inherit;
+
+    width: 100%;
+    height: 100%;
+    
+    border-width: 0;
 }
 
 .toggle-container {
